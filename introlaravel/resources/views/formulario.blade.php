@@ -1,7 +1,7 @@
 @extends('layouts.plantilla1')
 @section('titulo','Formulario Clientes')
 @section('contenido')
-@vite(['resources/js/app.js'])
+
 
 
 
