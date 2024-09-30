@@ -13,18 +13,18 @@
     {{-- Iniciar navbar --}}
     <nav class="navbar navbar-expend-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{{ route('rutainicio') }}"> Turista sin maps </a>
+            <a class="navbar-brand" href="{{ route('rutainicio') }}">  </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul>class="navbar-nav">
+                <ul class="navbar-nav">
 
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="{{ route('rutaformulario') }}">registro de clientes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Consulta clientes </a>
+                    <a class="nav-link" href="{{route('rutaclientes')}}">Consulta clientes</a>
                     </li>
                 </ul>
             </div>
@@ -34,6 +34,8 @@
 
 
     @yield('contenido')
+    
+
 
 
 
