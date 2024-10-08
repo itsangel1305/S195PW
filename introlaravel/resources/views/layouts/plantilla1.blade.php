@@ -34,6 +34,7 @@
 
 
     @yield('contenido')
+    @yield('contenido3')
     
 
 
