@@ -1,46 +1,34 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>@yield('titulo')</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite(['resources/js/app.js'])
+    <title>@yield('titulo')</title>
 </head>
-
 <body>
-    {{-- Iniciar navbar --}}
-    <nav class="navbar navbar-expend-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{{ route('rutainicio') }}">  </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="toggle navigation">
+            <a class="navbar-brand" href="{{route('rutainicio')}}">Turista Sin Maps</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="{{ route('rutaformulario') }}">registro de clientes</a>
+                        <a class="nav-link {{ request()->routeIs('rutaformulario')?'text-warning':'' }}" aria-current="page" href="{{route('rutaformulario')}}">Registro clientes</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="{{route('rutaclientes')}}">Consulta clientes</a>
+                        <a class="nav-link {{ request()->routeIs('rutaclientes')? 'text-primary':'' }}" href="{{route('rutaclientes')}}">Consulta clientes</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-    {{--finaliza navbar--}}
 
 
-    @yield('contenido')
-    @yield('contenido3')
-    
-
-
-
-
-
+    @yield('contenido1')
+    @yield('contenido2')
 </body>
-
 </html>

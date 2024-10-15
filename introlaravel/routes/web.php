@@ -12,7 +12,7 @@ Route::get('/formulario',[controladorVistas::class,'formulario'])->name('rutafor
 Route::get('/clientes',[controladorVistas::class,'consulta'])->name('rutaclientes');
 
 
-
+Route::post('/enviar',[controladorVistas::class,'procesarCliente'])->name('procesar');
 
 
 
