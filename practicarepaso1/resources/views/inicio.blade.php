@@ -13,9 +13,9 @@
         <div>
             <h1 class="display-1">Bienvenido a la primera práctica de repaso</h1>
             <p>Presiona el botón para iniciar....</p>
-            <a href="{{ route('rutarepaso1') }}" class="btn btn-primary">adelante c:</a>
+            <a href="{{ route('rutarepasoget') }}" class="btn btn-primary">adelante c:</a>
             
-            <!-- Datos personales en estilo de portada -->
+           
             <div style="margin-top: 50px; text-align: left;">
                 <p><strong>Nombre:</strong> Angel Daniel Bringas Godinez</p>
                 <p><strong>Escuela:</strong> Universidad Politécnica de Querétaro</p>
