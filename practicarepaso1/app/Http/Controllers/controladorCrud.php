@@ -7,11 +7,7 @@ use Illuminate\Http\Request;
 class controladorCrud extends Controller
 {
     
-    public function index()
-    {
-        return view('convertidor');
-    }
-
+   
    
     public function convertir(Request $request)
     {
@@ -22,7 +18,7 @@ class controladorCrud extends Controller
         $resultado = '';
 
         
-        switch ($tipo) {
+        switch ($tipo) {     
             case 'mb_to_gb':
                 $resultado = $cantidad . ' MB son ' . ($cantidad / 1024) . ' GB';
                 break;
@@ -40,6 +36,6 @@ class controladorCrud extends Controller
                 break;
         }
 
-    return view('repaso1', ['resultado' => $resultado]);
+    return view('repaso1', ['resultado' => $resultado]); 
     }
 }

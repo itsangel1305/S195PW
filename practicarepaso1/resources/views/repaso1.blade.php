@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Convertidor de Unidades</title>
     
-    @vite('resources/js/app.js')
+    @vite('resources/js/app.js')  <!-- genera recursos estaticos (plantillas de bootstrap)-->
 </head>
 
 <body class="bg-light">
@@ -19,10 +19,10 @@
                     </div>
                     <div class="card-body">
                         <form action="{{ route('rutarepaso1') }}" method="POST">
-                            @csrf
+                            @csrf <!--token-->
                             <div class="mb-3">
                                 <label for="cantidad" class="form-label">Cantidad</label>
-                                <input type="number" name="cantidad" id="cantidad" class="form-control" required>
+                                <input  name="cantidad" id="cantidad" class="form-control" required>
                             </div>
                             <div class="mb-3">
                                 <label for="tipo" class="form-label">Convertir</label>
@@ -30,7 +30,7 @@
                                     <option value="mb_to_gb">MB a GB</option>
                                     <option value="gb_to_mb">GB a MB</option>
                                     <option value="gb_to_tb">GB a TB</option>
-                                    <option value="tb_to_gb">TB a GB</option>
+                                    <option value="tb_to_gb">TB a GB</option>    <!--menu desplegable-->
                                 </select>
                             </div>
                             <div class="d-grid">
@@ -43,7 +43,7 @@
                             <label for="resultado" class="form-label">Resultado</label>
                             <input type="text" id="resultado" class="form-control" value="{{ $resultado }}" readonly>
                         </div>
-                        @endif
+                        @endif    <!--define el resultado, hace que el resultado se muestre en un contenedor de texto-->
                     </div>
                 </div>
             </div>
