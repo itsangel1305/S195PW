@@ -32,6 +32,7 @@
         </div>
 
         <button type="" class="btn btn-primary "> Guardar Fritura</button>
+        <a href="{{ route('rutaformFrituras') }}" class="btn btn-primary"> Ir al Registro </a> 
 </div>
 
 </body>
