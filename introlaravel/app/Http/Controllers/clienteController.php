@@ -15,16 +15,16 @@ class clienteController extends Controller
     public function home()
     {
         return view('inicio');
-
     }
+
     public function index()
     {
-        $consultaClientes= DB::table('clientes')->get();
-        return view('clientes',compact('consultaClientes'));
+        $consultaClientes = DB::table('clientes')->get();
+        return view('clientes', compact('consultaClientes'));
     }
 
     /**
-     * para abrir el formulario
+     * Para abrir el formulario
      */
     public function create()
     {
@@ -37,50 +37,45 @@ class clienteController extends Controller
     public function store(validadorCliente $request)
     {
         DB::table('clientes')->insert([
-            'nombre'=> $request->input('txtnombre'),
-            'apellido'=> $request->input('txtapellido'),
-            'correo'=> $request->input('txtcorreo'),
-            'telefono'=> $request->input('txttelefono'),
-            'created_at'=>Carbon::now() ,
-            'updated_at'=>Carbon::now() ,
+            'nombre' => $request->input('txtnombre'),
+            'apellido' => $request->input('txtapellido'),
+            'correo' => $request->input('txtcorreo'),
+            'telefono' => $request->input('txttelefono'),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
         ]);
 
-        $usuario= $request->input('txtnombre');
-        session()->flash('exito','Se guardo el usuario:  '.$usuario);
-
+        $usuario = $request->input('txtnombre');
+        session()->flash('exito', 'Se guardó el usuario: ' . $usuario);
 
         return to_route('rutaformulario');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
+    
     public function edit(string $id)
     {
-        //
+        $cliente = DB::table('clientes')->where('id', $id)->first();
+        return view('editarcliente', compact('cliente')); // Cambiado a "editarcliente"
     }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    
+    public function update(validadorCliente $request, string $id)
     {
-        //
+        DB::table('clientes')->where('id', $id)->update([
+            'nombre' => $request->input('txtnombre'),
+            'apellido' => $request->input('txtapellido'),
+            'correo' => $request->input('txtcorreo'),
+            'telefono' => $request->input('txttelefono'),
+            'updated_at' => Carbon::now(),
+        ]);
+
+        return redirect()->route('rutaclientes')->with('exito', 'Cliente actualizado correctamente.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+   
     public function destroy(string $id)
     {
-        //
+        DB::table('clientes')->where('id', $id)->delete();
+
+        return redirect()->route('rutaclientes')->with('exito', 'Cliente eliminado correctamente.');
     }
 }
